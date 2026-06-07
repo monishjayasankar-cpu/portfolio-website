@@ -1,54 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+/* CSS VARIABLES */
+:root {
+    --primary-color: #0077cc;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --card-color: #ffffff;
+    --text-color: #222;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* HEADER */
 header {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 40px;
 }
 
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* FLEXBOX NAVIGATION */
 nav {
-    background-color: #555;
-    padding: 10px;
-    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 10px;
+    font-weight: bold;
 }
 
+nav a:hover {
+    color: gold;
+}
+
+/* CSS GRID */
 main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     padding: 20px;
 }
 
+/* CARDS */
 section {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
+    background-color: var(--card-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
+section:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+section ul {
+    padding-left: 20px;
+}
+
+/* FOOTER */
 footer {
-    background-color: #333;
+    background-color: var(--secondary-color);
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
 
-button {
-    padding: 10px 20px;
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
 }
